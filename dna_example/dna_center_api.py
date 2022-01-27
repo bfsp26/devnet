@@ -3,7 +3,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from pprint import pprint as pp
 
-base_url = "https://sandboxdnac.cisco.com:443"
+base_url = "https://sandboxdnac.cisco.com"
 username = "devnetuser"
 password = "Cisco123!"
 
@@ -15,6 +15,7 @@ header = {'content-type': 'application/json'}
 response = requests.post(base_url + '/dna/system/api/v1/auth/token',
                          auth=HTTPBasicAuth(username, password),
                          headers=header, verify=False)
+                         
 token = response.json()['Token']
 
 # Get device information
